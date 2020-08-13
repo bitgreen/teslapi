@@ -1,5 +1,9 @@
 # tesla
 
+```
+npm install teslapi
+```
+
 Basically refactored version of https://github.com/mseminatore/TeslaJS
 
 * async/await native
