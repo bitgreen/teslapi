@@ -26,7 +26,9 @@ describe('teslapi', () => {
 
     console.log(state);
   });
-  it('refresh', async () => {
+  xit('refresh', async () => {
     console.log('refresh');
+    const result = await refreshToken(refresh);
+    console.log(result);
   });
 });
