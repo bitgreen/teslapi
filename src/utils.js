@@ -1,0 +1,42 @@
+import bent from 'bent';
+
+const BASE_URL = 'https://owner-api.teslamotors.com';
+
+export function clamp(value, min, max) {
+  if (value < min) {
+    value = min;
+  }
+
+  if (value > max) {
+    value = max;
+  }
+
+  return value;
+}
+
+const postReq = bent(BASE_URL, 'POST', 'json', 200);
+const getReq = bent(BASE_URL, 'GET', 'json', 200);
+
+export const post = async (url, body, headers) => {
+  const result = await postReq(url, body, headers);
+  if (result.response) {
+    return result.response;
+  }
+  return result;
+};
+
+export const get = async (url, body, headers) => {
+  const result = await getReq(url, body, headers);
+  if (result.response) {
+    return result.response;
+  }
+  return result;
+};
+
+export const getOne = async (url, body, headers) => {
+  const result = await getReq(url, body, headers);
+  if (result.response && result.count > 0) {
+    return result.response[0];
+  }
+  return result;
+};
