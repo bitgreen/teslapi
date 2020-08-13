@@ -40,3 +40,13 @@ export const getOne = async (url, body, headers) => {
   }
   return result;
 };
+
+export const getCommand = async (options, command) =>
+  await get(`/api/1/vehicles/${options.vehicleId}/${command}`, null, {
+    Authorization: 'Bearer ' + options.authToken
+  });
+
+export const postCommand = async (options, command, body) =>
+  await post(`/api/1/vehicles/${options.vehicleId}/${command}`, body, {
+    Authorization: 'Bearer ' + options.authToken
+  });
