@@ -33,12 +33,11 @@ export const get = async (url, body, headers) => {
   return result;
 };
 
-export const getOne = async (url, body, headers) => {
+export const getOne = async (url, body, headers, index) => {
   const result = await getReq(url, body, headers);
-  if (result.response && result.count > 0) {
-    return result.response[0];
+  if (result.response && result.count > index) {
+    return result.response[index];
   }
-  return result;
 };
 
 export const getCommand = async (options, command) =>

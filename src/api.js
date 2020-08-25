@@ -1,9 +1,14 @@
 import { clamp, get, getOne, getCommand as g, postCommand as p } from './utils';
 
-export const vehicle = async opts =>
-  await getOne('/api/1/vehicles', null, {
-    Authorization: 'Bearer ' + opts.authToken
-  });
+export const vehicle = async ({ authToken, carIndex = 0 } = {}) =>
+  await getOne(
+    '/api/1/vehicles',
+    null,
+    {
+      Authorization: 'Bearer ' + authToken
+    },
+    carIndex
+  );
 
 export const vehicles = async opts =>
   await get('/api/1/vehicles', null, {

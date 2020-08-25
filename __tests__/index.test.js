@@ -11,7 +11,7 @@ if (!refresh) {
 
 describe('teslapi', () => {
   it('chargeState', async () => {
-    const tesla = await vehicle({ authToken });
+    const tesla = await vehicle({ authToken, carIndex: 0 });
     console.log(tesla);
 
     if (tesla.state === 'asleep') {
